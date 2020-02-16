@@ -3,10 +3,10 @@ using PersonalFinanceManager.Models;
 
 namespace PersonalFinanceManager.Services
 {
-    public class UserService : EntityService<User>
+    public class GoalService : EntityService<Goal>
     {
 
-        public UserService(IConfiguration config) : base(config, "Users") 
+        public GoalService(IConfiguration config) : base(config, "Goals") 
         {
             
         }

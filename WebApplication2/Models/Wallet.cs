@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApplication2.Models {
-  public class Wallet
+namespace PersonalFinanceManager.Models
+{
+    public class Wallet : Entity
     {
-    IList<Goal> Goals { get; set; }
     }
 }

@@ -1,50 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PersonalFinanceManager.Models;
 using PersonalFinanceManager.Services;
-using System;
-using System.Collections.Generic;
-using WebApplication2.Models;
 
 namespace PersonalFinanceManager.Controllers
 {
     [Produces("application/json")]
     [Route("api/[controller]")]
-    public class UsersController : Controller
+    public class UsersController : BaseController<User, UserService>
     {
-
-        private readonly UserService userService;
-
-        public UsersController(UserService userService)
+        WalletService WalletService;
+        UserService Service;
+        public UsersController(UserService service, WalletService walletService) : base(service)
         {
-            this.userService = userService;
+            Service = service;
+            WalletService = walletService;
         }
-
-        [HttpGet]
-        public IEnumerable<User> Get()
-        {
-            return userService.Get();
-        }
-
-        [HttpGet("{id}")]
-        public User Get(string id)
-        {
-            return userService.Get(id);
-        }
-
-        [HttpDelete("{id}")]
-        public void Delete(string id)
-        {
-           userService.Remove(id);
-        }
-
 
         [HttpPost]
-        public void Post([FromBody]User user)
+        public override void Post([FromBody]User user)
         {
-            userService.Create(user);
+
+            Wallet wallet = WalletService.Create(new Wallet());
+
+            user.WalletId = wallet.Id;
+            Service.Create(user);
         }
-
-
-
-
     }
 }

@@ -1,11 +1,25 @@
-﻿using System;
+﻿using MongoDB.Bson.Serialization.Attributes;
+using System;
+using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication2.Models {
-  public class Investment
+namespace PersonalFinanceManager.Models
+{
+    public class Investment : Entity
     {
-    public double PurchasePrice { get; set; }
-    public DateTime PurchaseDate { get; set; }
-    public double SalePrice { get; set; }
-    public DateTime SaleDate { get; set; }
+        [BsonElement("PurchasePrice")]
+        [Required]
+        public double PurchasePrice { get; set; }
+
+        [BsonElement("PurchaseDate")]
+        [Required]
+        public DateTime PurchaseDate { get; set; }
+
+        [BsonElement("SalePrice")]
+        [Required]
+        public double SalePrice { get; set; }
+
+        [BsonElement("SaleDate")]
+        [Required]
+        public DateTime SaleDate { get; set; }
   }
 }

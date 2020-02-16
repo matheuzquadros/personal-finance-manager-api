@@ -1,16 +1,13 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace WebApplication2.Models {
-  public class User
+namespace PersonalFinanceManager.Models
+{
+    public class User : Entity
     {
-      [BsonId]
-      [BsonRepresentation(BsonType.ObjectId)]
-      public string Id { get; set; }
-
+      
         [BsonElement("Username")]
         [Required]
         public string Username { get; set; }
@@ -25,10 +22,9 @@ namespace WebApplication2.Models {
         
         [BsonElement("Email")]
         [Required]
-
-
         public string Email { get; set; }
 
-      public Wallet Wallet { get; set; }
+        [BsonElement("WalletId")]
+        public string WalletId { get; set; }
   }
 }
