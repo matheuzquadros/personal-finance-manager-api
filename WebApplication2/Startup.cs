@@ -21,6 +21,7 @@ namespace WebApplication2
             services.AddScoped<UserService>();
             services.AddScoped<WalletService>();
             services.AddScoped<GoalService>();
+            services.AddScoped<InvestimentService>();
             services.AddMvc();
         }
 

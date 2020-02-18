@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PersonalFinanceManager.Models;
 using PersonalFinanceManager.Services;
+using System.Collections.Generic;
 
 namespace PersonalFinanceManager.Controllers
 {
@@ -25,6 +26,12 @@ namespace PersonalFinanceManager.Controllers
             {
                 Service.Create(goal);
             }
+        }
+
+        [Route("{id}/investments")]
+        public virtual List<Investment> GetInvestments(string id)
+        {
+            return Service.GetInvestments(id);
         }
 
     }

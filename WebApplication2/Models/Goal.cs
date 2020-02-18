@@ -19,6 +19,5 @@ namespace PersonalFinanceManager.Models
         [Required]
         public string WalletId { get; set; }
 
-        public IList<Investment> Investments { get; set; }
   }
 }

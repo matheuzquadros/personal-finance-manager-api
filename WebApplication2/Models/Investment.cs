@@ -11,15 +11,17 @@ namespace PersonalFinanceManager.Models
         public double PurchasePrice { get; set; }
 
         [BsonElement("PurchaseDate")]
-        [Required]
+
         public DateTime PurchaseDate { get; set; }
 
         [BsonElement("SalePrice")]
-        [Required]
         public double SalePrice { get; set; }
 
         [BsonElement("SaleDate")]
-        [Required]
         public DateTime SaleDate { get; set; }
-  }
+
+        [BsonElement("GoalId")]
+        [Required]
+        public string GoalId { get; set; }
+    }
 }
